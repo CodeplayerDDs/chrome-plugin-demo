@@ -1,0 +1,7 @@
+{
+    "name": "MY_NetWork",
+    "version": "1.1.0",
+    "description": "dsy's network",
+    "devtools_page": "devtools.html",
+    "manifest_version": 2
+}
