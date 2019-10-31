@@ -2,31 +2,77 @@ const log = (...args) => chrome.devtools.inspectedWindow.eval(`
     console.log(...${JSON.stringify(args)});
 `);
 
+const SOURCE_TYPE_MAP = {
+    document: 'document',
+    xhr: 'xhr',
+    stylesheet: 'stylesheet',
+    script: 'script',
+    image: 'image',
+    other: 'other'
+}
+
 log(1111);
 
 let imgRe = /.{jpg, jpeg, png}$/g;
-let imgBox = document.getElementById('img');
 let scriptRe = /.js$/g;
-let scriptBox = document.getElementById('html');
+
+let documentBox = $('#document'),
+    xhrBox = $('#xhr'),
+    stylesheetBox = $('#stylesheet'),
+    scriptBox = $('#script'),
+    imageBox = $('#image'),
+    otherBox = $('#other');
 
 let sMap = {
-    img: [],
-    script: []
+    document: [],
+    xhr: [],
+    stylesheet: [],
+    script: [],
+    image: [],
+    other: []
 };
+
+let typeMap = {};
 chrome.devtools.network.onRequestFinished.addListener((data) => {
     let url = data.request.url;
-    let oP = document.createElement('P');
-    oP.innerHTML = url;
-    if (imgRe.test(url)) {
-        sMap.img.push(data);
-        imgBox && imgBox.appendChild(oP);
+    let sourceTy = data._resourceType;
+    let oP = `<span>${url}</span></br>`;
+
+    typeMap[sourceTy] = sourceTy;
+
+    switch (sourceTy) {
+        case SOURCE_TYPE_MAP.image:
+            sMap.image.push(data);
+            imageBox && imageBox.append(oP);
+            break;
+
+        case SOURCE_TYPE_MAP.script:
+            sMap.script.push(data);
+            scriptBox && scriptBox.append(oP);
+            break;
+
+        case SOURCE_TYPE_MAP.document:
+            sMap.document.push(data);
+            documentBox && documentBox.append(oP);
+            break;
+
+        case SOURCE_TYPE_MAP.xhr:
+            sMap.xhr.push(data);
+            xhrBox && xhrBox.append(oP);
+            break;
+
+        case SOURCE_TYPE_MAP.other:
+            sMap.other.push(data);
+            otherBox && otherBox.append(oP);
+            break;
+
+        default :
     }
-    if (scriptRe.test(url)) {
-        sMap.script.push(data);
-        scriptBox && scriptBox.appendChild(oP);
+
+    if (['xhr', 'other', 'document'].includes(sourceTy)) {
+        log(sourceTy);
+        log(data);
     }
-    log(data);
-    log(sMap);
 });
 
 // me.devtools.network.onRequestFinished.addListener(async(...args) => {

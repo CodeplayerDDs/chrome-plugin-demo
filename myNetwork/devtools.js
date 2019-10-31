@@ -1,6 +1,6 @@
 //创建一个Pannel
 chrome.devtools.panels.create(
     'DSY_NetWork',
-    null,
+    './common/icon.png',
     'pannel.html'
 )

@@ -1,0 +1,94 @@
+{
+    "startedDateTime": "2019-10-31T14:31:31.863Z",
+    "time": 84.44799995049834,
+    "request": {
+        "method": "GET",
+        "url": "https://common.cnblogs.com/scripts/jquery-2.2.0.min.js",
+        "httpVersion": "http/2.0",
+        "headers": [{
+                "name": "Sec-Fetch-Mode",
+                "value": "no-cors"
+            },
+            {
+                "name": "User-Agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36"
+            }
+        ],
+        "queryString": [],
+        "cookies": [],
+        "headersSize": -1,
+        "bodySize": 0
+    },
+    "response": {
+        "status": 200,
+        "statusText": "",
+        "httpVersion": "http/2.0",
+        "headers": [{
+                "name": "date",
+                "value": "Wed, 17 Jul 2019 12:23:33 GMT"
+            },
+            {
+                "name": "content-encoding",
+                "value": "gzip"
+            },
+            {
+                "name": "last-modified",
+                "value": "Tue, 09 Feb 2016 15:15:15 GMT"
+            },
+            {
+                "name": "server",
+                "value": "Tengine"
+            },
+            {
+                "name": "access-control-allow-origin",
+                "value": "*"
+            },
+            {
+                "name": "vary",
+                "value": "Accept-Encoding"
+            },
+            {
+                "name": "content-type",
+                "value": "application/javascript"
+            },
+            {
+                "name": "status",
+                "value": "200"
+            },
+            {
+                "name": "cache-control",
+                "value": "public,max-age=25920000"
+            }
+        ],
+        "cookies": [],
+        "content": {
+            "size": 85589,
+            "mimeType": "application/javascript"
+        },
+        "redirectURL": "",
+        "headersSize": -1,
+        "bodySize": 0,
+        "_transferSize": 0
+    },
+    "cache": {},
+    "timings": {
+        "blocked": 58.75900004480034,
+        "dns": -1,
+        "ssl": -1,
+        "connect": -1,
+        "send": 0,
+        "wait": 13.7889999807626,
+        "receive": 11.8999999249354,
+        "_blocked_queueing": 57.90400004480034
+    },
+    "serverIPAddress": "42.121.254.191",
+    "_initiator": {
+        "type": "parser",
+        "url": "https://www.cnblogs.com/huangcong/p/9414479.html",
+        "lineNumber": 20
+    },
+    "_priority": "High",
+    "_resourceType": "script",
+    "_fromCache": "disk",
+    "pageref": "page_1"
+}
